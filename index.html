@@ -1,11 +1,33 @@
 <!doctype html>
 <html>
-    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-        <title>We are the Champions</title>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <h1>We are the Champions</h1>
-        <script src="index.js"></script>
-    </body>
+<head>
+	<title>We are the Champions</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="container flex column">
+	<header class="flex column">
+		<img class="image" src="assets/freddie.png" alt="freddie rocking it">
+		<h1 class="header-title">We are the Champions</h1>
+	</header>
+	<main class="flex column">
+		<form id="publish-form" class="flex column">
+			<textarea placeholder="Write your endorsement here" id="endorsement-text" required></textarea>
+			<div class="flex input-container">
+				<input type="text" placeholder="From" id="endorsement-from" required>
+				<input type="text" placeholder="To" id="endorsement-to" required>
+			</div>
+			<button id="publish-btn">Publish</button>
+		</form>
+		<section class="endorsements-container flex column">
+			<h2 class="endorsements-title">- Endorsements -</h2>
+			<div id="endorsements-list" class="flex column"></div>
+		</section>
+	</main>
+</div>
+<script src="index.js" type="module"></script>
+</body>
 </html>

@@ -1,4 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+* {
+	box-sizing: border-box;
+	user-select: none;
+}
+
+:root {
+	--FIRST-BACKGROUND-COLOR: #000;
+	--SECOND-BACKGROUND-COLOR: #444059;
+	--THIRD-BACKGROUND-COLOR: #A6B653;
+	--FOURTH-BACKGROUND-COLOR: #FFF;
+	--FIRST-COLOR: #FFF;
+	--SECOND-COLOR: #8F8F8F;
+	--THIRD-COLOR: #04131C;
+	--FOURTH-COLOR: #1B1924;
+	--FIFTH-COLOR: #000;
+	--FIRST-FONT-FAMILY: 'Josefin Sans', sans-serif;
+	--SECOND-FONT-FAMILY: 'Inter', sans-serif;
+	--SMALL-GAP: .56em;
+	--MEDIUM-GAP: .8em;
+	--BIG-GAP: 1em;
+}
+
 html, body {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
+	background-image: url("assets/stadium.jpeg");
+	background-size: cover;
+	overflow: scroll;
+	height: 100vh;
+}
+
+h1, h2, h3, h4, p {
+	margin: 0;
+	padding: 0;
+}
+
+.flex {
+	display: flex;
+}
+
+.column {
+	flex-direction: column;
+}
+
+.container {
+	width: 100%;
+	max-width: 420px;
+	padding: 3em;
+	margin: 2em auto;
+	background-color: var(--FIRST-BACKGROUND-COLOR);
+}
+
+.image {
+	width: 8em;
+	aspect-ratio: 1/1;
+	margin-bottom: 1em;
+	background-color: var(--THIRD-BACKGROUND-COLOR);
+	padding: var(--SMALL-GAP);
+	border-radius: 4px;
+}
+
+header {
+	align-items: center;
+	margin-bottom: 1.25em;
+}
+
+.header-title {
+	font-family: var(--FIRST-FONT-FAMILY);
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1.5;
+	letter-spacing: 0em;
+	text-align: center;
+	color: var(--FIRST-COLOR);
+}
+
+textarea {
+	height: 118px;
+	resize: none;
+	text-align: start;
+	padding: 0.8em;
+}
+
+input {
+	padding: 0.6em;
+}
+textarea, input {
+	border-radius: 5px;
+	background-color: var(--SECOND-BACKGROUND-COLOR);
+	color: var(--SECOND-COLOR);
+	border: none;
+	font-family: var(--SECOND-FONT-FAMILY);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0em;
+}
+
+form {
+	gap: var(--SMALL-GAP) var(--SMALL-GAP);
+	margin-bottom: 1.4em;
+}
+
+.input-container {
+	width: 100%;
+	gap: var(--SMALL-GAP);
+}
+
+input {
+	text-align: center;
+	flex-grow: 1;
+	max-width: calc(50% - var(--SMALL-GAP) / 2);
+}
+
+button {
+	font-family: var(--FIRST-FONT-FAMILY);
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1.5;
+	letter-spacing: 0em;
+	text-align: center;
+	background-color: var(--THIRD-BACKGROUND-COLOR);
+	color: var(--THIRD-COLOR);
+	border-radius: 5px;
+	padding: 0.6em 0 0.5em;
+	border: none;
+	cursor: pointer;
+}
+
+.endorsements-title, .no-endorsements {
+	font-family: var(--FIRST-FONT-FAMILY);
+	font-weight: 700;
+	font-size: 1.25rem;
+	line-height: 1.5;
+	color: var(--FIRST-COLOR);
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.endorsement {
+	background-color: var(--FOURTH-BACKGROUND-COLOR);
+	color: var(--FOURTH-COLOR);
+	padding: var(--SMALL-GAP) var(--MEDIUM-GAP);
+}
+
+.endorsement {
+	gap: var(--SMALL-GAP);
+	margin-bottom: var(--BIG-GAP);
+}
+
+.endorsement p {
+	font-family: var(--SECOND-FONT-FAMILY);
+	font-size: 0.9rem;
+	line-height: 1.5;
+	user-select: text;
+}
+
+.to, .from, .hearts-count {
+	font-family: var(--SECOND-FONT-FAMILY);
+	font-weight: 700;
+}
+
+.from-hearts-container {
+	justify-content: space-between;
+}
+
+.hearts-container {
+	padding-top: 3px;
+	color: var(--THIRD-BACKGROUND-COLOR);
 }
