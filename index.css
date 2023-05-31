@@ -175,6 +175,10 @@ button {
 	color: var(--THIRD-BACKGROUND-COLOR);
 }
 
+i {
+	cursor: pointer;
+}
+
 @media (min-width: 320px) {
 	.container {
 		width: 100%;
