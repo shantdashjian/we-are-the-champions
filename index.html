@@ -8,19 +8,20 @@
 	<link rel="stylesheet" href="index.css">
 </head>
 <body>
-<div class="container flex column">
+<div class="container flex column round-border">
 	<header class="flex column">
-		<img class="image" src="assets/freddie.png" alt="freddie rocking it">
+		<img class="image round-border" src="assets/freddie.png" alt="freddie rocking it">
 		<h1 class="header-title">We are the Champions!</h1>
 	</header>
 	<main class="flex column">
 		<form id="publish-form" class="flex column">
-			<textarea placeholder="Write your endorsement here" id="endorsement-text" required></textarea>
+			<textarea class="round-border" placeholder="Write your endorsement here" id="endorsement-text"
+								required></textarea>
 			<div class="flex input-container">
-				<input type="text" placeholder="From" id="endorsement-from" required>
-				<input type="text" placeholder="To" id="endorsement-to" required>
+				<input class="round-border" type="text" placeholder="From" id="endorsement-from" required>
+				<input class="round-border" type="text" placeholder="To" id="endorsement-to" required>
 			</div>
-			<button id="publish-btn">Publish</button>
+			<button class="round-border" id="publish-btn">Publish</button>
 		</form>
 		<section class="endorsements-container flex column">
 			<h2 class="endorsements-title">- Endorsements -</h2>

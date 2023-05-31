@@ -41,6 +41,10 @@ h1, h2, h3, h4, p {
 	display: flex;
 }
 
+.round-border {
+	border-radius: 4px;
+}
+
 .column {
 	flex-direction: column;
 }
@@ -48,7 +52,7 @@ h1, h2, h3, h4, p {
 .container {
 	width: 100%;
 	max-width: 320px;
-	padding: 1em;
+	padding: 1em 1em 0.5em 1em;
 	margin: 1em auto;
 	background-color: var(--FIRST-BACKGROUND-COLOR);
 }
@@ -59,7 +63,6 @@ h1, h2, h3, h4, p {
 	margin-bottom: 1em;
 	background-color: var(--THIRD-BACKGROUND-COLOR);
 	padding: var(--SMALL-GAP);
-	border-radius: 4px;
 }
 
 header {
@@ -89,7 +92,6 @@ input {
 }
 
 textarea, input {
-	border-radius: 5px;
 	background-color: var(--SECOND-BACKGROUND-COLOR);
 	color: var(--SECOND-COLOR);
 	border: none;
@@ -102,7 +104,7 @@ textarea, input {
 
 form {
 	gap: var(--SMALL-GAP) var(--SMALL-GAP);
-	margin-bottom: 1.4em;
+	margin-bottom: 3em;
 }
 
 .input-container {
@@ -125,7 +127,6 @@ button {
 	text-align: center;
 	background-color: var(--THIRD-BACKGROUND-COLOR);
 	color: var(--THIRD-COLOR);
-	border-radius: 5px;
 	padding: 0.6em 0 0.5em;
 	border: none;
 	cursor: pointer;
@@ -177,7 +178,7 @@ button {
 	.container {
 		width: 100%;
 		max-width: 320px;
-		padding: 1.5em;
+		padding: 1.5em 1.5em 1em 1.5em;
 		margin: 1.5em auto;
 	}
 }
@@ -187,7 +188,7 @@ button {
 		width: 40%;
 		min-width: 480px;
 		max-width: 40%;
-		padding: 2em;
+		padding: 2em 2em 1em 2em;
 		margin: 2em auto;
 	}
 }
