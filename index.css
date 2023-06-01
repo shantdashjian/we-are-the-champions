@@ -32,7 +32,7 @@ html, body {
 	height: 100vh;
 }
 
-h1, h2, h3, h4, p {
+h1, h2, p {
 	margin: 0;
 	padding: 0;
 }
@@ -147,9 +147,6 @@ button {
 	background-color: var(--FOURTH-BACKGROUND-COLOR);
 	color: var(--FOURTH-COLOR);
 	padding: var(--SMALL-GAP) var(--MEDIUM-GAP);
-}
-
-.endorsement {
 	gap: var(--SMALL-GAP);
 	margin-bottom: var(--BIG-GAP);
 }
