@@ -20,27 +20,26 @@ publishFormEl.addEventListener('submit', (e) => {
 		endorsementText: endorsementTextEl.value,
 		endorser: endorserEl.value,
 		endorsee: endorseeEl.value,
-		hearts: 0
+		likes: 0
 	})
 	publishFormEl.reset()
 })
 
 onValue(endorsementsInDB, (snapshot) => {
 	if (snapshot.exists()) {
-		const endorsements = Object.entries(snapshot.val()).reverse()
+		const endorsements = updateEndorsementsWith(snapshot)
 		let innerHTML = ''
-		endorsements.forEach(endorsementEntry => {
-			const [endorsementKey, endorsementValue] = endorsementEntry
-			const {endorsementText, endorser, endorsee, hearts} = endorsementValue
+		endorsements.forEach((value, key) => {
+			const {endorsementText, endorser, endorsee, likes} = value
 			innerHTML += `
 				<div class="endorsement flex column round-border">
 					<p class="to">To ${endorsee}</p>	
 					<p class="text">${endorsementText}</p>	
-					<div class="from-hearts-container flex">
+					<div class="from-likes-container flex">
 						<p class="from">From ${endorser}</p>
-						<div class="hearts-container">
-							<i class="fa-solid fa-heart" onclick="increaseHearts('${endorsementKey}', '${hearts}')"></i>
-							<span class="hearts-count">${hearts}</span>
+						<div class="likes-container">
+							<i class="fa-solid fa-heart" onclick="like('${key}')"></i>
+							<span class="likes-count">${likes}</span>
 						</div>	
 					</div>
 				</div>
@@ -52,9 +51,42 @@ onValue(endorsementsInDB, (snapshot) => {
 	}
 })
 
-window.increaseHearts = (endorsementKey, endorsementHearts) => {
-	const endorsementHeartsRef = ref(database,`endorsements/${endorsementKey}`)
-	update(endorsementHeartsRef, {hearts: Number(endorsementHearts) + 1})
+function updateEndorsementsWith(snapshot) {
+	const endorsements = getEndorsementsFromLocalStorage()
+	let snapshotData = Object.entries(snapshot.val()).reverse();
+	let updatedEndorsements = new Map()
+	snapshotData.forEach(([ key, value ]) => {
+		updatedEndorsements.set(key, {
+			...value,
+			liked: endorsements.has(key) ? endorsements.get(key).liked : false
+		})
+	})
+	saveEndorsementsInLocalStorage(updatedEndorsements);
+	return updatedEndorsements
+}
+
+window.like = function(key) {
+	let endorsements = getEndorsementsFromLocalStorage()
+	let endorsement = endorsements.get(key)
+	if (endorsement.liked) {
+		endorsement.likes--
+	} else {
+		endorsement.likes++
+	}
+	endorsement.liked = !(endorsement.liked)
+	saveEndorsementsInLocalStorage(endorsements)
+	const endorsementLikesRef = ref(database,`endorsements/${key}`)
+	update(endorsementLikesRef, {likes: endorsement.likes})
+}
+
+function getEndorsementsFromLocalStorage() {
+	return localStorage.getItem('endorsements')
+		? new Map(JSON.parse(localStorage.getItem('endorsements')))
+		: new Map();
+}
+
+function saveEndorsementsInLocalStorage(endorsements) {
+	localStorage.setItem('endorsements', JSON.stringify(Array.from(endorsements)))
 }
 
 

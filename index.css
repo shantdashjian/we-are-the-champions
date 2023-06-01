@@ -161,16 +161,16 @@ button {
 	user-select: text;
 }
 
-.to, .from, .hearts-count {
+.to, .from, .likes-count {
 	font-family: var(--SECOND-FONT-FAMILY);
 	font-weight: 700;
 }
 
-.from-hearts-container {
+.from-likes-container {
 	justify-content: space-between;
 }
 
-.hearts-container {
+.likes-container {
 	padding-top: 3px;
 	color: var(--THIRD-BACKGROUND-COLOR);
 }
