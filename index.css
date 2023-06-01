@@ -11,6 +11,8 @@
 	--SECOND-BACKGROUND-COLOR: #444059;
 	--THIRD-BACKGROUND-COLOR: #A6B653;
 	--FOURTH-BACKGROUND-COLOR: #FFF;
+	--FIFTH-BACKGROUND-COLOR: #caef06;
+	--SIXTH-BACKGROUND-COLOR: #eff6a2;
 	--FIRST-COLOR: #FFF;
 	--SECOND-COLOR: #8F8F8F;
 	--THIRD-COLOR: #04131C;
@@ -174,6 +176,21 @@ button {
 
 i {
 	cursor: pointer;
+}
+
+button:hover,
+button:focus {
+	background-color: var(--FIFTH-BACKGROUND-COLOR);
+}
+
+i:hover,
+i:focus {
+	color: var(--FIFTH-BACKGROUND-COLOR);
+}
+
+textarea:focus,
+input:focus {
+	background-color: var(--SIXTH-BACKGROUND-COLOR);
 }
 
 @media (min-width: 320px) {
