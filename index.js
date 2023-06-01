@@ -9,17 +9,17 @@ const database = getDatabase(app)
 const endorsementsInDB = ref(database, 'endorsements')
 
 const endorsementTextEl = document.getElementById('endorsement-text')
-const endorsementFromEl = document.getElementById('endorsement-from')
-const endorsementToEl = document.getElementById('endorsement-to')
+const endorserEl = document.getElementById('endorser')
+const endorseeEl = document.getElementById('endorsee')
 const publishFormEl = document.getElementById('publish-form')
 const endorsementsListEl = document.getElementById('endorsements-list')
 
 publishFormEl.addEventListener('submit', (e) => {
 	e.preventDefault()
 	push(endorsementsInDB, {
-		text: endorsementTextEl.value,
-		from: endorsementFromEl.value,
-		to: endorsementToEl.value,
+		endorsementText: endorsementTextEl.value,
+		endorser: endorserEl.value,
+		endorsee: endorseeEl.value,
 		hearts: 0
 	})
 	publishFormEl.reset()
@@ -30,17 +30,17 @@ onValue(endorsementsInDB, (snapshot) => {
 		const endorsements = Object.entries(snapshot.val()).reverse()
 		let innerHTML = ''
 		endorsements.forEach(endorsementEntry => {
-			const endorsementKey = endorsementEntry[0]
-			const endorsementValue = endorsementEntry[1]
+			const [endorsementKey, endorsementValue] = endorsementEntry
+			const {endorsementText, endorser, endorsee, hearts} = endorsementValue
 			innerHTML += `
 				<div class="endorsement flex column round-border">
-					<p class="to">To ${endorsementValue.to}</p>	
-					<p class="text">${endorsementValue.text}</p>	
+					<p class="to">To ${endorsee}</p>	
+					<p class="text">${endorsementText}</p>	
 					<div class="from-hearts-container flex">
-						<p class="from">From ${endorsementValue.from}</p>
+						<p class="from">From ${endorser}</p>
 						<div class="hearts-container">
-							<i class="fa-solid fa-heart" onclick="increaseHearts('${endorsementKey}', '${endorsementValue.hearts}')"></i>
-							<span class="hearts-count">${endorsementValue.hearts}</span>
+							<i class="fa-solid fa-heart" onclick="increaseHearts('${endorsementKey}', '${hearts}')"></i>
+							<span class="hearts-count">${hearts}</span>
 						</div>	
 					</div>
 				</div>
