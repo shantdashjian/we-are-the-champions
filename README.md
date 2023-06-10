@@ -1,4 +1,4 @@
-# We Are The Champions!
+# We are the Champions!
 An endorsements app that helps the Acme sales team members endorse each other on project successes. The app is built with HTML, CSS, and vanilla JavaScript. It stores data in a Firebase Realtime Database as well as the browser `localStorage`. 
 
 ![main](assets/main-page.png "Welcome")
